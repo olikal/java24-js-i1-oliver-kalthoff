@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
