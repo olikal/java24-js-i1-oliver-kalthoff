@@ -1,13 +1,174 @@
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  box-sizing: border-box;
 }
 
-.wrapper {
-  height: 100vh;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   font-family: "Open Sans", sans-serif;
+  background-color: #f4f4f4;;
+}
+
+.hidden {
+  display: none
+}
+
+#wrapper, #name-form {
+  height: 100vh;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  transition: background-color 0.1s ease;
+}
+
+#playerName {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 233px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+}
+
+.epilepsi-check {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.wrapper, p {
+  margin: 0.2rem 0;
+}
+
+button {
+  background-color: #464646;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#btn-restart {
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #292929;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.dice {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0, 0.25);
+}
+
+.dice-dot {
+  --top: 0%;
+  --left: 0%;
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
+}
+
+#message {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Bara chatGPT nedanför - men kul ändå! */
+.winner {
+  background: linear-gradient(135deg, #fff1a6, #ffd700);
+  animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+  from { background-color: #ffe066; }
+  to { background-color: #fff9c4; }
+}
+
+.dice.shake {
+  animation: shake 0.7s ease;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(6deg); }
+  80% { transform: rotate(-6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+#victory-banner {
+  position: absolute;
+  top: 30%;
+  font-size: 2rem;
+  color: #b8860b;
+  background-color: #fff8dc;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gold;
+  display: none;
+  z-index: 100;
+}
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  opacity: 0.7;
+  animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }

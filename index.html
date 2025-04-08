@@ -8,8 +8,36 @@
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
-		<div id="wrapper">
-			<div></div>
+		<div id="name-form">
+			<h1>Pig, Dice Game</h1>
+			<img src="./img/dice-pig.png" width="233" height="auto" />
+			<label for="playerName">Ange namn:</label>
+			<input type="text" id="playerName" />
+			<div class="epilepsi-check">
+				<label>
+					<input type="checkbox" id="epilepsiMode" />
+					Jag är känslig för blinkande färger
+				</label>
+			</div>
+			<button id="btn-start-game">Starta spelet</button>
 		</div>
+
+		<div id="wrapper" class="hidden">
+			<h2 id="player-display"></h2>
+			<p>Totala poäng: <span id="total-score">0</span></p>
+			<p>Omgångens poäng: <span id="round-score">0</span></p>
+			<p>Spelade omgångar: <span id="rounds">0</span></p>
+
+			<div id="dice-container"></div>
+
+			<button id="btn-roll-dice">Kasta tärningen</button>
+			<button id="btn-hold">Spara poäng</button>
+			<button id="btn-restart" class="hidden">Starta om spelet</button>
+
+			<p id="message"></p>
+
+			<div id="victory-banner">🎉 Grattis, du vann! 🎉</div>
+		</div>
+		<div id="confetti-container"></div>
 	</body>
 </html>
